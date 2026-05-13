@@ -137,11 +137,15 @@ const handleSignOut = async () => {
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 dark:bg-[#151e32] pt-24 pb-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex justify-between items-center mb-8">
-        <h1 class="text-3xl font-bold text-brand-dark dark:text-brand-light">Dashboard</h1>
-        <button @click="handleSignOut" class="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg transition-colors font-medium text-sm">
+  <div class="min-h-screen pt-24 pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(110,168,255,0.18),_transparent_28%),radial-gradient(circle_at_85%_0%,_rgba(124,92,255,0.12),_transparent_24%)]"></div>
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-8 flex items-center justify-between rounded-[2rem] glass-panel-strong px-6 py-5">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-secondary">Admin</p>
+          <h1 class="text-3xl font-bold text-primary">Dashboard</h1>
+        </div>
+        <button @click="handleSignOut" class="rounded-full bg-red-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-red-600">
           Sign Out
         </button>
       </div>
@@ -149,57 +153,57 @@ const handleSignOut = async () => {
       <div class="grid lg:grid-cols-3 gap-8">
         <!-- Add/Edit Project Form -->
         <div class="lg:col-span-1">
-          <div class="bg-white dark:bg-[#1a233a] p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800">
-            <h2 class="text-xl font-bold mb-6 text-brand-dark dark:text-brand-light">
+          <div class="glass-panel-strong p-6 rounded-[2rem]">
+            <h2 class="text-xl font-bold mb-6 text-primary">
               {{ editingId ? 'Edit Project' : 'Add New Project' }}
             </h2>
             <form @submit.prevent="saveProject" class="space-y-4">
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Title</label>
-                <input v-model="form.title" type="text" required class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none">
+                <label class="block text-sm font-medium text-secondary mb-1">Title</label>
+                <input v-model="form.title" type="text" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5">
               </div>
               <div class="flex gap-4">
                 <div class="flex-1">
-                  <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Category</label>
-                  <select v-model="form.category" class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none">
+                  <label class="block text-sm font-medium text-secondary mb-1">Category</label>
+                  <select v-model="form.category" class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5">
                     <option>Coding Projects</option>
                     <option>Graphic Design</option>
                   </select>
                 </div>
                 <div class="w-24">
-                  <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Views</label>
-                  <input v-model="form.views" type="number" min="0" required class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none">
+                  <label class="block text-sm font-medium text-secondary mb-1">Views</label>
+                  <input v-model="form.views" type="number" min="0" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5">
                 </div>
               </div>
               
               <div class="flex items-center gap-2 mt-2 mb-2">
                 <input v-model="form.recommended" type="checkbox" id="recommended" class="w-4 h-4 text-brand-blue rounded border-gray-300 focus:ring-brand-blue">
-                <label for="recommended" class="text-sm font-medium text-gray-700 dark:text-gray-300 cursor-pointer">Mark as Recommended</label>
+                <label for="recommended" class="text-sm font-medium text-secondary cursor-pointer">Mark as Recommended</label>
               </div>
 
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Description</label>
-                <textarea v-model="form.desc" required rows="3" class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none"></textarea>
+                <label class="block text-sm font-medium text-secondary mb-1">Description</label>
+                <textarea v-model="form.desc" required rows="3" class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5"></textarea>
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Image URL</label>
-                <input v-model="form.imageURL" type="url" required class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none">
+                <label class="block text-sm font-medium text-secondary mb-1">Image URL</label>
+                <input v-model="form.imageURL" type="url" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5">
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Tech Stack / Tools</label>
-                <input v-model="form.tech" type="text" required class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none" placeholder="e.g., Vue.js, Tailwind">
+                <label class="block text-sm font-medium text-secondary mb-1">Tech Stack / Tools</label>
+                <input v-model="form.tech" type="text" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5" placeholder="e.g., Vue.js, Tailwind">
               </div>
               <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Live/Demo Link</label>
-                <input v-model="form.link" type="url" required class="w-full px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue outline-none">
+                <label class="block text-sm font-medium text-secondary mb-1">Live/Demo Link</label>
+                <input v-model="form.link" type="url" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-3 py-2 text-primary outline-none focus:ring-2 focus:ring-brand-blue dark:bg-white/5">
               </div>
               
               <div class="pt-2 flex gap-2">
-                <button type="submit" :disabled="isSubmitting" class="flex-1 bg-brand-blue text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors disabled:opacity-70 flex justify-center items-center">
+                <button type="submit" :disabled="isSubmitting" class="flex flex-1 items-center justify-center rounded-2xl bg-gradient-to-r from-brand-blue to-cyan-300 px-4 py-2 font-bold text-white transition-transform hover:-translate-y-0.5 disabled:opacity-70">
                   <span v-if="isSubmitting" class="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white mr-2"></span>
                   {{ editingId ? 'Update' : 'Save' }}
                 </button>
-                <button v-if="editingId" type="button" @click="cancelEdit" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-bold rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                <button v-if="editingId" type="button" @click="cancelEdit" class="rounded-2xl bg-white/50 px-4 py-2 font-bold text-primary transition-colors hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
                   Cancel
                 </button>
               </div>
@@ -209,29 +213,29 @@ const handleSignOut = async () => {
 
         <!-- Projects List -->
         <div class="lg:col-span-2">
-          <div class="bg-white dark:bg-[#1a233a] p-6 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-800">
-             <h2 class="text-xl font-bold mb-6 text-brand-dark dark:text-brand-light">Manage Projects</h2>
+          <div class="glass-panel-strong p-6 rounded-[2rem]">
+             <h2 class="text-xl font-bold mb-6 text-primary">Manage Projects</h2>
              
              <div v-if="loading" class="flex justify-center py-10">
                <div class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-brand-blue"></div>
              </div>
              
-             <div v-else-if="projects.length === 0" class="text-center py-10 text-gray-500">
+             <div v-else-if="projects.length === 0" class="text-center py-10 text-secondary">
                No projects found. Add one to get started.
              </div>
 
              <div v-else class="space-y-4">
-               <div v-for="project in projects" :key="project.id" class="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700 relative">
+               <div v-for="project in projects" :key="project.id" class="relative flex items-center justify-between rounded-2xl border border-white/20 bg-white/40 p-4 dark:bg-white/5">
                  <div v-if="project.recommended" class="absolute -top-2 -left-2 bg-yellow-400 text-yellow-900 text-xs font-bold px-2 py-1 rounded-full shadow">
                    ★ Recommended
                  </div>
                  <div class="flex items-center space-x-4">
                    <img :src="project.imageURL" class="w-16 h-16 object-cover rounded-lg" alt="thumbnail" />
                    <div>
-                     <h3 class="font-bold text-brand-dark dark:text-brand-light">{{ project.title }}</h3>
+                     <h3 class="font-bold text-primary">{{ project.title }}</h3>
                      <div class="flex items-center gap-3">
-                       <p class="text-xs text-gray-500">{{ project.category }}</p>
-                       <p class="text-xs text-gray-500 flex items-center gap-1">
+                       <p class="text-xs text-secondary">{{ project.category }}</p>
+                       <p class="text-xs text-secondary flex items-center gap-1">
                          <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                          {{ project.views || 0 }}
                        </p>

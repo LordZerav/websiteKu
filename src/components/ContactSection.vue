@@ -32,41 +32,41 @@ const submitForm = async () => {
 </script>
 
 <template>
-  <section id="contact" class="py-20 bg-gray-50 dark:bg-[#151e32]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="contact" class="section-shell py-20">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4">Get In Touch</h2>
+        <h2 class="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-primary">Get In Touch</h2>
         <div class="w-20 h-1 bg-brand-blue mx-auto rounded"></div>
-        <p class="mt-6 text-lg text-gray-600 dark:text-gray-300">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+        <p class="mt-6 text-lg text-secondary">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
       </div>
       
-      <div class="bg-white dark:bg-[#1a233a] rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-800">
+      <div class="glass-panel-strong rounded-[2rem] overflow-hidden">
         <div class="grid md:grid-cols-5">
           <div class="p-8 md:col-span-3">
             <form @submit.prevent="submitForm" class="space-y-6">
               <div>
-                <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
-                <input v-model="form.name" type="text" id="name" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-shadow" placeholder="Your Name">
+                <label for="name" class="block text-sm font-medium text-secondary mb-1">Name</label>
+                <input v-model="form.name" type="text" id="name" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-4 py-3 text-primary outline-none transition-shadow focus:ring-2 focus:ring-brand-blue dark:bg-white/5" placeholder="Your Name">
               </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                <input v-model="form.email" type="email" id="email" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-shadow" placeholder="your.email@example.com">
+                <label for="email" class="block text-sm font-medium text-secondary mb-1">Email</label>
+                <input v-model="form.email" type="email" id="email" required class="w-full rounded-2xl border border-white/20 bg-white/60 px-4 py-3 text-primary outline-none transition-shadow focus:ring-2 focus:ring-brand-blue dark:bg-white/5" placeholder="your.email@example.com">
               </div>
               <div>
-                <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                <textarea v-model="form.message" id="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-brand-dark dark:text-brand-light focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-shadow resize-none" placeholder="How can I help you?"></textarea>
+                <label for="message" class="block text-sm font-medium text-secondary mb-1">Message</label>
+                <textarea v-model="form.message" id="message" rows="4" required class="w-full resize-none rounded-2xl border border-white/20 bg-white/60 px-4 py-3 text-primary outline-none transition-shadow focus:ring-2 focus:ring-brand-blue dark:bg-white/5" placeholder="How can I help you?"></textarea>
               </div>
-              <button type="submit" :disabled="isSubmitting" class="w-full bg-brand-blue text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-600 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center">
+              <button type="submit" :disabled="isSubmitting" class="flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-brand-blue to-cyan-300 px-4 py-3 font-bold text-white transition-transform hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70">
                 <span v-if="isSubmitting" class="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white mr-2"></span>
                 Send Message
               </button>
               
-              <div v-if="status.text" :class="status.type === 'success' ? 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800' : 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800'" class="p-4 rounded-lg border text-sm text-center">
+              <div v-if="status.text" :class="status.type === 'success' ? 'bg-green-100 text-green-800 border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-800' : 'bg-red-100 text-red-800 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800'" class="rounded-2xl border p-4 text-center text-sm">
                 {{ status.text }}
               </div>
             </form>
           </div>
-          <div class="bg-brand-blue p-8 md:col-span-2 flex flex-col justify-center text-white">
+          <div class="bg-gradient-to-br from-brand-blue to-cyan-400 p-8 md:col-span-2 flex flex-col justify-center text-white">
             <h3 class="text-2xl font-bold mb-6">Contact Info</h3>
             <div class="space-y-6">
               <div class="flex items-start">
@@ -93,6 +93,11 @@ const submitForm = async () => {
                      <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.406.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.55.535 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"></path></svg>
                   </a>
                 </div>
+              </div>
+
+              <div class="pt-8 border-t border-white/20">
+                <p class="text-sm font-semibold uppercase tracking-[0.25em] text-white/80">Made with Love</p>
+                <p class="mt-2 text-sm text-white/90">Dibuat dengan Vue.js, Firebase, dan perhatian ke detail supaya tampilannya tetap clean dan nyaman dipakai.</p>
               </div>
             </div>
           </div>

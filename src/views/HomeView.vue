@@ -6,7 +6,7 @@ import ContactSection from '../components/ContactSection.vue'
 </script>
 
 <template>
-  <div>
+  <div class="relative">
     <HeroSection />
     <AboutSection />
     <PortfolioGrid />
